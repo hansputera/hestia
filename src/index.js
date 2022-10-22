@@ -2,6 +2,8 @@ import {SessionManager, Client} from 'gampang';
 import fs from 'node:fs/promises';
 import assert from 'node:assert';
 
+import * as adminGroups from './services/admin-groups/index.js';
+
 import {config} from '../config.js';
 
 assert.ok(config.sessionPath, 'sessionPath is required!');
@@ -10,6 +12,9 @@ const client = new Client(
     new SessionManager(config.sessionPath, config.sessionType),
     config,
 );
+
+// register commands
+adminGroups.register(client);
 
 client.on('ready', () => {
     client.logger.info(
