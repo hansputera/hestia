@@ -1,5 +1,5 @@
-import {SessionManager} from 'gampang';
-import {Client} from 'gampang';
+import {SessionManager, Client} from 'gampang';
+import fs from 'node:fs/promises';
 import assert from 'node:assert';
 
 import {config} from '../config.js';
@@ -15,6 +15,12 @@ client.on('ready', () => {
     client.logger.info(
         `Logged in as: ${client.raw?.user?.name || client.raw?.user?.id}`,
     );
+});
+
+client.on('logout', async () => {
+    await fs.rm(config.sessionPath, {
+        recursive: true,
+    });
 });
 
 client.launch();
