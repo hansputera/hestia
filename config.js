@@ -8,7 +8,7 @@ export const config = {
     qr: {
         store: 'terminal',
     },
-    sessionPath: path.resolve(__dirname, 'sessions'),
+    sessionPath: path.resolve('sessions'),
     prefixes: ['/'],
     sessionType: 'folder',
 };
