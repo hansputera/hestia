@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert';
 
 import * as adminGroups from './services/admin-groups/index.js';
+import * as createVoting from './services/create-voting/index.js';
 
 import {config} from '../config.js';
 
@@ -15,6 +16,7 @@ const client = new Client(
 
 // register commands
 adminGroups.register(client);
+createVoting.register(client);
 
 client.on('ready', () => {
     client.logger.info(
