@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {SessionManager, Client} from 'gampang';
 import fs from 'node:fs/promises';
 import assert from 'node:assert';
@@ -6,7 +7,6 @@ import * as adminGroups from './services/admin-groups/index.js';
 import * as createVoting from './services/create-voting/index.js';
 
 import {config} from '../config.js';
-
 assert.ok(config.sessionPath, 'sessionPath is required!');
 
 const client = new Client(
