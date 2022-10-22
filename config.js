@@ -6,7 +6,10 @@ import path from 'node:path';
 /** @type {TypeOptions & { sessionPath: string, sessionType: SessionType }} */
 export const config = {
     qr: {
-        store: 'terminal',
+        store: 'file',
+        options: {
+            dest: path.resolve('qr.png'),
+        }
     },
     sessionPath: path.resolve('sessions'),
     prefixes: ['/'],
