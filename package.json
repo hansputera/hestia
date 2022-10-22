@@ -1,0 +1,30 @@
+{
+    "name": "hestia",
+    "version": "1.0.0",
+    "description": "Hestia adalah bot yang dapat membuat presensi dan voting melalui chat whatsapp",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint \"**/*.js\" --fix",
+        "format": "prettier . --write",
+        "prepare": "husky install"
+    },
+    "keywords": [
+        "voting-bot",
+        "whatsapp-bot",
+        "wa",
+        "whatsapp",
+        "pooling-bot",
+        "pooling",
+        "presensi"
+    ],
+    "author": "Hanif Dwy Putra S <hanifdwyputrasembiring@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": ">=5.16.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-config-prettier": "^8.5.0",
+        "husky": "^8.0.1",
+        "prettier": "^2.7.1"
+    },
+    "type": "module"
+}
