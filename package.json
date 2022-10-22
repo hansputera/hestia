@@ -26,5 +26,8 @@
         "husky": "^8.0.1",
         "prettier": "^2.7.1"
     },
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "gampang": "^1.4.3"
+    }
 }
