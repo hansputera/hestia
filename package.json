@@ -29,6 +29,7 @@
     "type": "module",
     "dependencies": {
         "dotenv": "^16.0.3",
-        "gampang": "^1.4.3"
+        "gampang": "^1.4.3",
+        "mongoose": "^6.6.7"
     }
 }
