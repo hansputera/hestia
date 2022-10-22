@@ -9,7 +9,7 @@ export const config = {
         store: 'file',
         options: {
             dest: path.resolve('qr.png'),
-        }
+        },
     },
     sessionPath: path.resolve('sessions'),
     prefixes: ['/'],
