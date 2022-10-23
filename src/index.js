@@ -3,6 +3,8 @@ import {SessionManager, Client} from 'gampang';
 import fs from 'node:fs/promises';
 import assert from 'node:assert';
 
+import {gotMongoConnection} from './utils/index.js';
+
 import * as adminGroups from './services/admin-groups/index.js';
 import * as createVoting from './services/create-voting/index.js';
 
@@ -13,6 +15,9 @@ const client = new Client(
     new SessionManager(config.sessionPath, config.sessionType),
     config,
 );
+
+// connecto database
+gotMongoConnection()?.catch((e) => client.logger.error(e));
 
 // register commands
 adminGroups.register(client);
