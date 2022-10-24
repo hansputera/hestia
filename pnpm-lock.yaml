@@ -632,7 +632,7 @@ packages:
   /gampang/1.5.0:
     resolution: {integrity: sha512-vwgrp+WOPHElXVzt2WjaNNVjKruZJL+pOX571cmMZSzdjg0a+pm8KcgYZl84INpP9olLbJYuJePmDq6KOQpVzg==}
     dependencies:
-      '@adiwajshing/baileys': github.com/hansputera/Baileys/9458c860a89b639d2325aa42d33864c974bff914
+      '@adiwajshing/baileys': github.com/hansputera/Baileys/e3295334e821b7202f5510785345f622e0d49e99
       long: 5.2.0
       pino: 8.7.0
       pino-pretty: 9.1.1
@@ -1549,8 +1549,8 @@ packages:
       protobufjs: 6.8.8
     dev: false
 
-  github.com/hansputera/Baileys/9458c860a89b639d2325aa42d33864c974bff914:
-    resolution: {tarball: https://codeload.github.com/hansputera/Baileys/tar.gz/9458c860a89b639d2325aa42d33864c974bff914}
+  github.com/hansputera/Baileys/e3295334e821b7202f5510785345f622e0d49e99:
+    resolution: {tarball: https://codeload.github.com/hansputera/Baileys/tar.gz/e3295334e821b7202f5510785345f622e0d49e99}
     name: '@adiwajshing/baileys'
     version: 5.0.0
     prepare: true

@@ -21,6 +21,10 @@ async function createVoting(context) {
     )
         return;
 
+    await context.client.raw.sendMessage(context.raw.key.remoteJid, {
+        pollName: 'Fruits',
+        pollValues: ['Apple', 'Orange', 'Mango'],
+    });
     await context.reply(
         'See updates here: https://github.com/hansputera/hestia',
     );

@@ -29,6 +29,10 @@ client.on('ready', () => {
     );
 });
 
+client.on('message', (ctx) => {
+    console.log(ctx.raw.message.pollUpdateMessage?.vote);
+});
+
 client.on('logout', async () => {
     await fs.rm(config.sessionPath, {
         recursive: true,
