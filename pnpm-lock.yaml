@@ -5,14 +5,14 @@ specifiers:
   eslint: '>=5.16.0'
   eslint-config-google: ^0.14.0
   eslint-config-prettier: ^8.5.0
-  gampang: ^1.5.0
+  gampang: ^1.5.1
   husky: ^8.0.1
   mongoose: ^6.6.7
   prettier: ^2.7.1
 
 dependencies:
   dotenv: 16.0.3
-  gampang: 1.5.0
+  gampang: 1.5.1
   mongoose: 6.6.7
 
 devDependencies:
@@ -629,10 +629,10 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /gampang/1.5.0:
-    resolution: {integrity: sha512-vwgrp+WOPHElXVzt2WjaNNVjKruZJL+pOX571cmMZSzdjg0a+pm8KcgYZl84INpP9olLbJYuJePmDq6KOQpVzg==}
+  /gampang/1.5.1:
+    resolution: {integrity: sha512-iCUPfizmpodE55chzV6NnaxaTVtWG5S8WN7JCNMDNAxqT+rueS6e31OE2+DU2tBMyX4lI/WUULMAmJ1JMwYdFA==}
     dependencies:
-      '@adiwajshing/baileys': github.com/hansputera/Baileys/e3295334e821b7202f5510785345f622e0d49e99
+      '@adiwajshing/baileys': github.com/hansputera/Baileys/b5b8d77b4c70d3744f3493274550e77796bb205c
       long: 5.2.0
       pino: 8.7.0
       pino-pretty: 9.1.1
@@ -1549,8 +1549,8 @@ packages:
       protobufjs: 6.8.8
     dev: false
 
-  github.com/hansputera/Baileys/e3295334e821b7202f5510785345f622e0d49e99:
-    resolution: {tarball: https://codeload.github.com/hansputera/Baileys/tar.gz/e3295334e821b7202f5510785345f622e0d49e99}
+  github.com/hansputera/Baileys/b5b8d77b4c70d3744f3493274550e77796bb205c:
+    resolution: {tarball: https://codeload.github.com/hansputera/Baileys/tar.gz/b5b8d77b4c70d3744f3493274550e77796bb205c}
     name: '@adiwajshing/baileys'
     version: 5.0.0
     prepare: true
