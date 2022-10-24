@@ -11,23 +11,22 @@ async function createVoting(context) {
 
     const group = context.getGroup();
     if (!group) {
-        await context.reply('Sorry, can you try it later?');
         return;
     }
 
-    if (
-        !group.members.find((member) => member.id === context.authorNumber)
-            ?.isAdmin
-    )
+    const args = context.args.join(' ').split('//');
+    if (args.length < 2) {
+        await context.reply(
+            'Coba kasih argumen yang bener dong!\nContoh: /crvt Bukber pakai apa ya? // Apel#Jeruk#Mangga --normal',
+        );
         return;
+    }
 
-    await context.client.raw.sendMessage(context.raw.key.remoteJid, {
-        pollName: 'Fruits',
-        pollValues: ['Apple', 'Orange', 'Mango'],
-    });
-    await context.reply(
-        'See updates here: https://github.com/hansputera/hestia',
-    );
+    // normal poll
+    if (context.flags.indexOf('normal') !== -1) {
+        await context.createPoll(args[0], args[1].split('#'));
+        return;
+    }
 }
 
 /**
