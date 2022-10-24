@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert';
 
 import {gotMongoConnection} from './utils/index.js';
+import {VotingModel} from './models/index.js';
 
 import * as adminGroups from './services/admin-groups/index.js';
 import * as createVoting from './services/create-voting/index.js';
@@ -18,6 +19,29 @@ const client = new Client(
 
 // connecto database
 gotMongoConnection()?.catch((e) => client.logger.error(e));
+
+client.on('message', async (context) => {
+    if (context.isPM) {
+        const reply = context.getReply();
+        if (!reply) return;
+
+        const vote = await VotingModel.findOne({
+            msgId: reply.id,
+        });
+
+        if (vote.voters.indexOf(context.authorNumber) !== -1) return;
+
+        const selectedOption = reply.text.match(/[0-9]+/g)?.at(0);
+        if (selectedOption < vote.polls.length) return;
+        await vote.update({
+            $push: {
+                voters: `${context.authorNumber}|${selectedOption - 1}`,
+            },
+        });
+
+        await context.reply('Voting anda telah masuk!');
+    }
+});
 
 // register commands
 adminGroups.register(client);

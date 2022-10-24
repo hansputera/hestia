@@ -30,6 +30,7 @@
     "dependencies": {
         "dotenv": "^16.0.3",
         "gampang": "^1.5.1",
-        "mongoose": "^6.6.7"
+        "mongoose": "^6.6.7",
+        "ms": "^2.1.3"
     }
 }
