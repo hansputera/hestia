@@ -29,11 +29,16 @@ client.on('message', async (context) => {
             msgId: reply.id,
         });
 
-        if (vote.voters.indexOf(context.authorNumber) !== -1) return;
+        if (
+            vote.voters.findIndex((v) =>
+                v.startsWith(context.authorNumber.toString()),
+            ) !== -1
+        )
+            return;
 
         const selectedOption = reply.text.match(/[0-9]+/g)?.at(0);
-        if (selectedOption < vote.polls.length) return;
-        await vote.update({
+        if (selectedOption > vote.polls.length || selectedOption <= 0) return;
+        await vote.updateOne({
             $push: {
                 voters: `${context.authorNumber}|${selectedOption - 1}`,
             },
