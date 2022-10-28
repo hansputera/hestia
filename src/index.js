@@ -3,7 +3,7 @@ import {SessionManager, Client} from 'gampang';
 import fs from 'node:fs/promises';
 import assert from 'node:assert';
 
-import {gotMongoConnection} from './utils/index.js';
+import {fetchGroup, gotMongoConnection} from './utils/index.js';
 import {VotingModel} from './models/index.js';
 
 import * as adminGroups from './services/admin-groups/index.js';
@@ -29,14 +29,21 @@ client.on('message', async (context) => {
             msgId: reply.id,
         });
 
+        const group = await fetchGroup(context.client, vote.groupJid);
+
         if (
+            group.members.find((m) => m.id === context.authorNumber)?.isAdmin &&
+            !vote.allowAdmin
+        )
+            return;
+        else if (
             vote.voters.findIndex((v) =>
                 v.startsWith(context.authorNumber.toString()),
             ) !== -1
         )
             return;
 
-        const selectedOption = reply.text.match(/[0-9]+/g)?.at(0);
+        const selectedOption = context.text.match(/[0-9]+/g)?.at(0);
         if (selectedOption > vote.polls.length || selectedOption <= 0) return;
         await vote.updateOne({
             $push: {
@@ -44,7 +51,9 @@ client.on('message', async (context) => {
             },
         });
 
-        await context.reply('Voting anda telah masuk!');
+        await context.reply(
+            `Anda memilih opsi ${selectedOption.toString()}, dan suara anda telah dimasukan!`,
+        );
     }
 });
 
